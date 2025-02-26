@@ -28,22 +28,15 @@ const mockAirdrops: Airdrop[] = [
 
 export class AirdropAPI {
   static async getAirdrops(): Promise<Airdrop[]> {
-    try {
-      // In production, fetch from actual Solana network
-      return mockAirdrops;
-    } catch (error) {
-      console.error("Error fetching airdrops:", error);
-      throw error;
-    }
+    // Simulate API delay
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    return mockAirdrops;
   }
 
   static async getAirdropById(id: string): Promise<Airdrop | null> {
-    try {
-      return mockAirdrops.find((airdrop) => airdrop.id === id) || null;
-    } catch (error) {
-      console.error("Error fetching airdrop:", error);
-      throw error;
-    }
+    // Simulate API delay
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    return mockAirdrops.find((airdrop) => airdrop.id === id) || null;
   }
 
   static async getUserAllocation(
@@ -65,6 +58,9 @@ export class AirdropAPI {
                 startTime: Date.now(),
                 endTime: Date.now() + 90 * 24 * 60 * 60 * 1000,
                 interval: 30 * 24 * 60 * 60 * 1000,
+                releaseFrequency: "MONTHLY",
+                releasedAmount: 0,
+                totalAmount: balance,
               }
             : undefined,
       };

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useWalletContext } from "../context/WalletContext";
 import { AirdropAPI } from "../services/api";
-import { StreamflowService } from "../services/streamflow";
 import { Airdrop, UserAllocation } from "../types";
 import { useNotification } from "../context/NotificationContext";
 

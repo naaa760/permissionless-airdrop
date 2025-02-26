@@ -15,6 +15,9 @@ export interface VestingSchedule {
   startTime: number;
   endTime: number;
   interval: number;
+  releaseFrequency: "ONE_TIME" | "DAILY" | "WEEKLY" | "MONTHLY";
+  releasedAmount: number;
+  totalAmount: number;
 }
 
 export interface UserAllocation {
