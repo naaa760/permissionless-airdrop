@@ -6,7 +6,6 @@ import Header from "./components/Header";
 import SearchAirdrop from "./components/SearchAirdrop";
 import AirdropList from "./components/AirdropList";
 import AirdropCard from "./components/AirdropCard";
-import { AirdropType } from "./types";
 
 const App: React.FC = () => {
   const handleClaim = () => {
