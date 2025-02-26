@@ -44,6 +44,22 @@ const AirdropCard: React.FC<AirdropCardProps> = ({ airdrop }) => {
 
   return (
     <div className="relative overflow-hidden backdrop-blur-sm bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
+      {/* Decorative Images */}
+      <div className="absolute -top-8 -left-8 w-32 h-32 animate-float-slow opacity-50">
+        <img
+          src="/img.jpg"
+          alt=""
+          className="w-full h-full object-cover rounded-full blur-sm"
+        />
+      </div>
+      <div className="absolute -bottom-8 -right-8 w-28 h-28 animate-float-delayed opacity-50">
+        <img
+          src="/img2.jpg"
+          alt=""
+          className="w-full h-full object-cover rounded-full blur-sm"
+        />
+      </div>
+
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-emerald-500/10" />
 
