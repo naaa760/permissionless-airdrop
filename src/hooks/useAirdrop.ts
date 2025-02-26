@@ -36,13 +36,24 @@ export const useAirdrop = (airdropId: string) => {
   }, [airdropId, connected, publicKey]);
 
   const claimTokens = async () => {
-    if (!connected || !publicKey || !allocation) return false;
+    if (!connected || !publicKey || !allocation) {
+      showNotification("error", "Please connect your wallet first");
+      return false;
+    }
+
+    if (allocation.claimed) {
+      showNotification("error", "Tokens already claimed");
+      return false;
+    }
 
     try {
       // In production, this would call your Solana program
-      await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate transaction
-      showNotification("success", "Tokens claimed successfully!");
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // Update local state
       setAllocation({ ...allocation, claimed: true });
+
+      showNotification("success", "Tokens claimed successfully!");
       return true;
     } catch (err) {
       console.error(err);

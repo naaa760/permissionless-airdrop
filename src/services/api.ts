@@ -26,6 +26,19 @@ const mockAirdrops: Airdrop[] = [
   },
 ];
 
+const mockAllocations: Record<string, UserAllocation> = {
+  airdrop1: {
+    airdropId: "airdrop1",
+    amount: 1000000000, // 1 SOL
+    claimed: false,
+  },
+  airdrop2: {
+    airdropId: "airdrop2",
+    amount: 1000000, // 1 USDC
+    claimed: false,
+  },
+};
+
 export class AirdropAPI {
   static async getAirdrops(): Promise<Airdrop[]> {
     // Simulate API delay
@@ -43,30 +56,23 @@ export class AirdropAPI {
     airdropId: string,
     walletAddress: string
   ): Promise<UserAllocation | null> {
-    try {
-      const publicKey = new PublicKey(walletAddress);
-      const balance = await connection.getBalance(publicKey);
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    return mockAllocations[airdropId] || null;
+  }
 
-      // In production, check actual allocation from Solana program
-      return {
-        airdropId,
-        amount: balance,
-        claimed: false,
-        vestingSchedule:
-          airdropId === "airdrop2"
-            ? {
-                startTime: Date.now(),
-                endTime: Date.now() + 90 * 24 * 60 * 60 * 1000,
-                interval: 30 * 24 * 60 * 60 * 1000,
-                releaseFrequency: "MONTHLY",
-                releasedAmount: 0,
-                totalAmount: balance,
-              }
-            : undefined,
-      };
-    } catch (error) {
-      console.error("Error fetching allocation:", error);
-      throw error;
+  static async claimAirdrop(
+    airdropId: string,
+    walletAddress: string
+  ): Promise<boolean> {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    const allocation = mockAllocations[airdropId];
+    if (!allocation || allocation.claimed) {
+      return false;
     }
+
+    // Update mock data
+    allocation.claimed = true;
+    return true;
   }
 }
