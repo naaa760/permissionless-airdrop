@@ -4,27 +4,32 @@ import { useWalletContext } from "../context/WalletContext";
 const Header: React.FC = () => {
   const { connected } = useWalletContext();
 
-  const createStars = () => {
+  const createStaticStars = () => {
     const stars = [];
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 100; i++) {
       const style = {
-        "--duration": `${Math.random() * 3 + 2}s`,
-        "--delay": `${Math.random() * 2}s`,
-        "--opacity": Math.random() * 0.7 + 0.3,
-        "--rotate": `${Math.random() * 360}deg`,
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * 100}%`,
+        opacity: Math.random() * 0.7 + 0.3,
       } as React.CSSProperties;
 
-      stars.push(<div key={i} className="star" style={style} />);
+      stars.push(
+        <div
+          key={i}
+          className="absolute w-[2px] h-[2px] bg-white rounded-full"
+          style={style}
+        />
+      );
     }
     return stars;
   };
 
   return (
     <div className="relative min-h-[70vh] bg-black overflow-hidden">
-      {/* Star Field Background */}
-      <div className="star-field">{createStars()}</div>
+      {/* Static Stars Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {createStaticStars()}
+      </div>
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0">
