@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+Permissionless-Airdrop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://github.com/user-attachments/assets/e12edeee-9642-4771-9ff0-6e97ef9108d3)
 
-## Available Scripts
 
-In the project directory, you can run:
+A sleek, modern web application for discovering and claiming token airdrops on Solana. Built with React, TypeScript, and Tailwind CSS, this dApp allows users to connect their Phantom wallet, search for airdrops, view detailed information, and claim tokens directly to their wallet.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+> Wallet Integration: Seamless connection with Phantom wallet
 
-### `npm test`
+> Airdrop Discovery: Search for airdrops by ID or browse available airdrops
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> Detailed Information: View comprehensive airdrop details including
 
-### `npm run build`
+> Token type and symbol
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> Total and claimed amounts (with USD value)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> Recipient statistics
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Vesting schedules (for vested airdrops)
 
-### `npm run eject`
+> Claiming Process: Easily claim tokens with a simple transaction flow
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> Real-time Updates: Track claiming progress with visual indicators
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> Frontend: React, TypeScript
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+> Styling: Tailwind CSS
 
-## Learn More
+> Blockchain: Solana Web3.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> Wallet: Solana Wallet Adapter
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> Build Tool: Craco (Create React App Configuration Override)
+
+## Usage
+
+> Connect Wallet: Click the "Connect Wallet" button in the top right corner
+
+> Search for Airdrops: Enter an airdrop ID in the search bar or browse the available airdrops
+
+> View Details: Click on an airdrop card to see detailed information
+
+> Claim Tokens: If eligible, click the "Claim" button to initiate the transaction
+
+> Confirm Transaction: Approve the transaction in your Phantom wallet
+
+> Receive Tokens: Once confirmed, tokens will be transferred to your wallet
